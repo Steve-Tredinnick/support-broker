@@ -13,10 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/documentation', 'DocumentationController@index')->name('documentation');
+Route::get('/reports', 'ReportsController@index')->name('reports');
+Route::get('/admin', 'AdminController@index')->name('admin');
+
+
+Route::resource('/cases', 'CasesController');
+Route::resource('/people', 'PersonController');
+Route::resource('/providers', 'ProviderController');
+Route::resource('/commercials', 'CommercialController');
+
