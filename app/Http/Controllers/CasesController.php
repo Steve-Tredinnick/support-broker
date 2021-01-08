@@ -14,7 +14,7 @@ class CasesController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.cases.cases');
     }
 
     /**
